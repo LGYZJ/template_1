@@ -15,8 +15,6 @@ jobs:
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
-        with:
-          node-version: "20" # 根据你的项目需求选择 Node.js 版本
 
       - name: Install dependencies
         run: npm install
@@ -30,4 +28,4 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > private_key
           chmod 600 private_key
-          rsync -avz -e "ssh -i private_key -o StrictHostKeyChecking=no" dist/ user@your-windows-server:/path/to/deploy
+          rsync -avz -e "ssh -i private_key -o StrictHostKeyChecking=no" dist/ Administrator@nickyzj.ddns.net:D:/nginx/test
